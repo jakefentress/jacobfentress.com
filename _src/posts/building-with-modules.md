@@ -6,7 +6,6 @@ tags:
   - contentful
   - jinja
   - nunjucks
-layout: layouts/post.html
 ---
 {% raw %}
 A pretty common design pattern we run into frequently is the concept of modular pages. Think of a modular page as something like a portfolio entry, and within it you could have a full-width image, a three-up widget, a slideshow, a video, a text module, etc. — all in any order (and have as many of each) as you would like.
