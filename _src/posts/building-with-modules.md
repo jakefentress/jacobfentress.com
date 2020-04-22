@@ -8,6 +8,7 @@ tags:
   - nunjucks
 layout: layouts/post.html
 ---
+{% raw %}
 A pretty common design pattern we run into frequently is the concept of modular pages. Think of a modular page as something like a portfolio entry, and within it you could have a full-width image, a three-up widget, a slideshow, a video, a text module, etc. — all in any order (and have as many of each) as you would like.
 
 There's been quite a bit of writing around how to structure styles and scripts for modules... and there's still a lot that can be discussed there, but I want to talk through how we approach the application logic to render pages like this in an organized fashion.
@@ -106,3 +107,4 @@ and
 Now, we're returning the proper html, populated with the correct data, to the template file. Our modular page is rendering as desired, with any order and combination of modules (without needlessly repeating code). Job done.
 
 This concept can be extended to include more module types and to handle more passed data (I could imagine wanting to pass some text to the image module to populate the `alt` attribute). Happy experimenting.
+{% endraw %}
