@@ -1,0 +1,19 @@
+<!doctype html>
+<html class="no-js {%- if htmlClass %} {{ htmlClass }}{% endif %}" lang="en">
+
+    {% include "head.html" %}
+
+    <body {%- if bodyClass or layoutClass %} class="{{ bodyClass }} {{ layoutClass }}"{% endif %}>
+        {% include "analytics.html" %}
+
+        {% include "header.html" %}
+
+        <main id="main">
+            {{ content | safe }}
+        </main>
+
+        {% include "footer.html" %}
+
+        <!-- Current page: {{ page.url | url }} -->
+    </body>
+</html>

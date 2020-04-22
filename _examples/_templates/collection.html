@@ -1,0 +1,17 @@
+---
+layout: layouts/default.html
+pagination:
+    data: projects
+    size: 1
+    alias: entry
+permalink: "projects/{{ entry.slug }}/"
+eleventyComputed:
+    title: "{{ entry.projectName }}"
+    seo_title: "{{ entry.seoTitle }}"
+    seo_description: "{{ entry.metaDescription }}"
+    image: "{{ entry.image.fields.file.url }}"
+---
+
+{% for component in entry.components %}
+    {% include 'components/' + component.sys.contentType.sys.id + '.html' ignore missing %}
+{% endfor %}

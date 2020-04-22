@@ -1,0 +1,76 @@
+{
+  "name": "fk-11ty-bootstrap",
+  "version": "0.0.2",
+  "description": "A starter repository for an 11ty site using data from contentful.",
+  "license": "MIT",
+  "scripts": {
+    "postcss": "postcss _temp/css/*.css -d _src/static/css -u autoprefixer -m",
+    "scss": "sass _src/static/scss:_temp/css --source-map --style=compressed",
+    "build:css": "yarn scss && yarn postcss",
+    "build:js": "parcel build _src/static/js/*.js --out-dir _src/static/bundle",
+    "build:js:dev": "parcel build _src/static/js/*.js --out-dir _src/static/bundle --no-minify",
+    "build:site": "ELEVENTY_ENV=production npx @11ty/eleventy --config=_11ty/config.js",
+    "build:site:dev": "ELEVENTY_ENV=development npx @11ty/eleventy --config=_11ty/config.js",
+    "build": "yarn build:css && yarn build:js && yarn build:site",
+    "build:dev": "yarn build:css && yarn build:js:dev && yarn build:site:dev",
+    "debug": "DEBUG=* npx @11ty/eleventy --config=_11ty/config.js",
+    "lint": "yarn lint:js && yarn lint:scss",
+    "lint:js": "eslint _src/static/js/*.js",
+    "lint:scss": "stylelint _src/static/scss/*.scss",
+    "watch:css": "onchange '_src/static/scss/**/*.scss' -o 'stylelint {{changed}} --fix && yarn build:css'",
+    "watch:js": "onchange '_src/static/js/**/*.js' -o 'eslint {{changed}} --fix && yarn build:js:dev'",
+    "serve": "ELEVENTY_ENV=development npx @11ty/eleventy --config=_11ty/config.js --serve --watch",
+    "start": "yarn build:dev && npm-run-all --parallel watch:css watch:js serve"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/fictivekin/11ty-bootstrap.git"
+  },
+  "author": {
+    "name": "Fictive Kin",
+    "email": "hello@fictivekin.com",
+    "url": "https://fictivekin.com/"
+  },
+  "bugs": {
+    "url": "https://github.com/fictivekin/11ty-bootstrap/issues"
+  },
+  "homepage": "https://github.com/fictivekin/11ty-bootstrap#readme",
+  "browserslist": [
+    "extends @fictivekin/browserslist-config-fk"
+  ],
+  "eslintConfig": {
+    "extends": "@fictivekin/eslint-config-fk"
+  },
+  "stylelint": {
+    "extends": "@fictivekin/stylelint-config-fk"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^0.10.0",
+    "@11ty/eleventy-plugin-rss": "^1.0.7",
+    "@11ty/eleventy-plugin-syntaxhighlight": "^3.0.1",
+    "@fictivekin/browserslist-config-fk": "^1.0.0",
+    "@fictivekin/eslint-config-fk": "^1.0.2",
+    "@fictivekin/stylelint-config-fk": "^1.0.0",
+    "autoprefixer": "^9.7.5",
+    "contentful": "^7.14.0",
+    "dotenv": "^8.2.0",
+    "eslint": "^6.8.0",
+    "json-pretty-html": "^1.1.6",
+    "luxon": "^1.12.0",
+    "markdown-it": "^10.0.0",
+    "markdown-it-anchor": "^5.0.2",
+    "node-fetch": "^2.6.0",
+    "npm-run-all": "^4.1.5",
+    "onchange": "^6.1.0",
+    "parcel-bundler": "^1.12.4",
+    "postcss-cli": "^7.1.0",
+    "sass": "^1.26.3",
+    "stylelint": "^13.2.1",
+    "stylelint-order": "^4.0.0",
+    "stylelint-scss": "^3.16.0"
+  },
+  "dependencies": {
+    "es6-promise": "^4.2.4",
+    "whatwg-fetch": "^3.0.0"
+  }
+}

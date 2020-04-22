@@ -1,0 +1,43 @@
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "{{ metadata.url[system.environment] }}{{ page.url | url }}"
+        },
+        "headline": "{{ entry.title or settings.title or metadata.title }}",
+        {% set heroImage = entry.heroImage.url or settings.image.url or metadata.image -%}
+        {% if heroImage -%}
+        "image": [
+            "{{ heroImage }}?{% imgParams { 'w': '1200', 'h': '1200', 'fit': 'crop', 'q': settings.imagesQuality or metadata.images.quality, 'fm': 'pjpg'}, metadata.imagesAPI %}",
+            "{{ heroImage }}?{% imgParams { 'w': '1200', 'h': '800', 'fit': 'crop', 'q': settings.imagesQuality or metadata.images.quality, 'fm': 'pjpg'}, metadata.imagesAPI %}",
+            "{{ heroImage }}?{% imgParams { 'w': '1200', 'h': '675', 'fit': 'crop', 'q': settings.imagesQuality or metadata.images.quality, 'fm': 'pjpg'}, metadata.imagesAPI %}"
+        ],
+        {%- endif %}
+        "datePublished": "{{ entry.publishedOn or entry.sys.createdAt | iso }}",
+        "dateModified": "{{ entry.sys.updatedAt | iso }}",
+        {% if entry.author -%}
+        "author": [{
+            "@type": "Person",
+            "name": "{{ entry.author }}"
+        }],
+        {%- else -%}
+        "author": {
+            "@type": "Organization",
+            "name": "{{ settings.title or metadata.title }}"
+        },
+        {%- endif %}
+        "publisher": {
+            "@type": "Organization",
+            "name": "{{ settings.title or metadata.title }}",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "{{ metadata.url[system.environment] }}/static/img/logo.png",
+                "height": "60",
+                "width": "60"
+            }
+        },
+        "description": "{{ entry.seoDescription or entry.description or settings.seoDescription or settings.description or metadata.seo_description or metadata.description }}"
+    }
+</script>

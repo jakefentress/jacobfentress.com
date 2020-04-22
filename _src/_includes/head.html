@@ -1,0 +1,98 @@
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>{% if seoTitle or title %}{{ seoTitle or title }} | {% endif %}{{ settings.seoTitle or settings.title or metadata.seo_title or metadata.title }}</title>
+
+    <!-- metadata -->
+    <meta name="description" content="{{ entry.seoDescription or entry.description or settings.seoDescription or settings.description or metadata.seo_description or metadata.description }}">
+    {% if entry.seoKeywords or settings.seoKeywords or metadata.seo_keywords -%}
+        <meta name="keywords" content="{{ entry.seoKeywords or settings.seoKeywords or metadata.seo_keywords }}">
+    {%- endif %}
+    {% if entry.canonical or canonical -%}
+        <link rel="canonical" href="{{ entry.canonical or canonical }}">
+    {%- endif %}
+    {% if amp -%}
+        <link rel="amphtml" href="{{ metadata.url[system.environment] }}/amp{{ page.url | url }}">
+    {%- endif %}
+    {% if schema -%}
+        {% include "schema.html" %}
+    {%- endif %}
+
+    <!-- social -->
+    <meta property="og:title" content="{{ title or settings.title or metadata.title }}">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ metadata.url[system.environment] }}{{ page.url | url }}">
+    {% if title -%}
+        <meta property="og:site_name" content="{{ settings.title or metadata.title }}">
+    {%- endif %}
+    <meta property="og:description" content="{{ entry.description or settings.description or metadata.description }}">
+    {% set heroImage = entry.heroImage.url or settings.image.url or metadata.image -%}
+    {% if heroImage -%}
+        <meta property="og:image" content="{{ heroImage }}?{% imgParams { 'w': '1200', 'h': '1200', 'fit': 'crop', 'q': settings.imagesQuality or metadata.images.quality, 'fm': 'pjpg'}, metadata.imagesAPI %}">
+    {%- endif %}
+    {% set heroImageAlt = entry.heroImage.description or entry.heroImage.title or settings.image.description or settings.image.title -%}
+    {% if heroImageAlt -%}
+        <meta name="twitter:image:alt" content="{{ page_image_alt }}">
+    {%- endif %}
+    <meta name="twitter:card" content="summary_large_image">
+    {% if settings.twitter or metadata.social.twitter -%}
+        <meta name="twitter:site" content="@{{ settings.twitter or metadata.social.twitter }}">
+    {%- endif %}
+    {% if settings.facebookAppId or metadata.analytics.facebook_app_id %}
+        <meta property="fb:app_id" content="{{ settings.facebookAppId or metadata.analytics.facebook_app_id }}">
+    {%- endif %}
+
+    {% if system.environment == 'production' and (settings.googleAnalyticsId or metadata.analytics.google_analytics_id) -%}
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id={{ settings.google_analytics_id or metadata.analytics.google_analytics_id }}"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', '{{ settings.googleAnalyticsId or metadata.analytics.google_analytics_id }}');
+    </script>
+    {%- endif -%}
+    {%- if system.environment == 'production' and (settings.googleTagManagerId or metadata.analytics.google_tag_manager_id) -%}
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','{{ settings.googleTagManagerId or metadata.analytics.google_tag_manager_id }}');</script>
+    <!-- End Google Tag Manager -->
+    {%- endif %}
+
+    {#
+    <!-- fonts -->
+    <link rel="preload" href="/assets/fonts/font.woff2" as="font" type="font/woff2" crossorigin>
+    #}
+
+    <!-- styles -->
+    {% set cssFile = '/static/css/screen.css' -%}
+    <link rel="stylesheet" href="{{ cssFile | url }}?ts={{ cssFile | ts }}">
+    {% if system.environment == 'development' -%}
+        <link rel="stylesheet" href="{{ '/static/css/pretty.css' | url }}">
+    {%- endif %}
+
+    {#
+    <!-- favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ metadata.url[system.environment] }}/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ metadata.url[system.environment] }}/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ metadata.url[system.environment] }}/favicon-16x16.png">
+    <link rel="manifest" href="{{ metadata.url[system.environment] }}/manifest.json">
+    <link rel="mask-icon" href="{{ metadata.url[system.environment] }}/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="theme-color" content="#ffffff">
+    #}
+
+    <!-- javascript -->
+    <script>var b = document.documentElement; b.className = b.className.replace(/\bno-js\b/,'js'); b.setAttribute('data-useragent', navigator.userAgent); b.setAttribute("data-platform", navigator.platform );</script>
+    {% if bodyJs -%}
+        {%- set jsFile = bodyJs -%}
+    {%- elif layoutJs -%}
+        {%- set jsFile = layoutJs -%}
+    {%- else -%}
+        {%- set jsFile = '/static/bundle/global.js' -%}
+    {%- endif -%}
+    <script src="{{ jsFile | url }}?ts={{ jsFile | ts }}" defer></script>
+</head>

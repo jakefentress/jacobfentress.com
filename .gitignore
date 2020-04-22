@@ -1,0 +1,9 @@
+_site/
+node_modules/
+.env
+_src/static/css/*
+_src/static/bundle/*
+_temp/
+.cache
+**/.DS_Store
+yarn-error.log

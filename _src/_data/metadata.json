@@ -1,0 +1,27 @@
+{
+  "title": "Jacob Fentress",
+  "legal_name": "Jacob Fentress",
+  "url": {
+    "production": "https://jacobfentress.com",
+    "development": "http://localhost:8080"
+  },
+  "description": "This is a description for your site.",
+  "image": "",
+  "image_alt_text": "",
+  "seo_title": "",
+  "seo_description": "",
+  "seo_keywords": "",
+  "social": {
+    "facebook": "",
+    "twitter": ""
+  },
+  "analytics": {
+    "google_analytics_id": "",
+    "google_tag_manager_id": "",
+    "facebook_app_id": ""
+  },
+  "images": {
+    "api": "contentful",
+    "quality": "75"
+  }
+}

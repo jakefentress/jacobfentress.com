@@ -1,0 +1,28 @@
+.json-pretty {
+    font-family: 'SF Mono', Monaco, Inconsolata, 'Fira Mono', 'Droid Sans Mono', 'Source Code Pro', monospace;
+    font-size: 14px;
+    font-weight: normal;
+    letter-spacing: 0;
+    line-height: 16px;
+    padding: 0 30px;
+}
+
+.json-selected {
+    background-color: rgba(139, 191, 228, 0.2);
+}
+
+.json-string {
+    color: #6CAEDD;
+}
+
+.json-key {
+    color: #EC5F67;
+}
+
+.json-boolean {
+    color: #99C794;
+}
+
+.json-number {
+    color: #99C794;
+}
