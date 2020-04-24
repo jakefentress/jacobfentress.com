@@ -37,6 +37,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy('_src/static/img');
   eleventyConfig.addPassthroughCopy('_src/static/js');
   eleventyConfig.addPassthroughCopy('_src/static/scss');
+  eleventyConfig.addPassthroughCopy('_src/.wellknown');
 
 
   // collections

@@ -1,0 +1,56 @@
+==================================================================
+https://keybase.io/jfentress
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://jacobfentress.com
+  * I am jfentress (https://keybase.io/jfentress) on keybase.
+  * I have a public key ASBxjdyR0hRHSBzx_KYGV96xf3UtJTheWxGLUuJmg1ev8Ao
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "0120f300d727ffa8595579e6e07cc60fa5b0aa3887c3197f9174dfd621fcf66a07820a",
+      "host": "keybase.io",
+      "kid": "0120718ddc91d21447481cf1fca60657deb17f752d25385e5b118b52e2668357aff00a",
+      "uid": "6d8a7427f8ef2371f3f619a86b6f6d19",
+      "username": "jfentress"
+    },
+    "merkle_root": {
+      "ctime": 1587741011,
+      "hash": "cf1432bd2c6272748cf1021ab00615b9ca84eee93fe39f66d0e388b6e2ef5bae4540a83aa5e8968754da132da297ab60d46c43be59dbabf2f008d51f76e9e810",
+      "hash_meta": "d88ef530d03d6e621b9ce84207f64ea8f8ef3f9e7414c480fd6a81a153751cbf",
+      "seqno": 16038795
+    },
+    "service": {
+      "entropy": "4uHf6WRBxzK+5AYDLg4S3GqY",
+      "hostname": "jacobfentress.com",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 2
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "5.1.1"
+  },
+  "ctime": 1587741028,
+  "expire_in": 504576000,
+  "prev": "0807e1498f654d051c8adbcbe97d4927f92a2b3bd6a9f1d07e47efc9e10ec07b",
+  "seqno": 22,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgcY3ckdIUR0gc8fymBlfesX91LSU4XlsRi1LiZoNXr/AKp3BheWxvYWTESpcCFsQgCAfhSY9lTQUcitvL6X1JJ/kqKzvWqfHQfkfvyeEOwHvEIG+ZSYgNC0yJs1fcEkC14KQalPbX4nlORL7li1siyR6GAgHCo3NpZ8RAJPdSkMSKbwDKfysTpmp+cDaAKf0ERVQ8ewR11GvaCYMfo8/A28A4RIbn2Oi2FGD9Wm2XjDFpTUJlybA3kngGCahzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEIBSciwwXfmaBEh/cL3Oqf6de7muthmRHVVNhA1OZdHsvo3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/jfentress
+
+==================================================================
